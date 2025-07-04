@@ -5,86 +5,86 @@ import Image from 'next/image';
 import Logo from '@/assets/images/Logo.png';
 import { Twitter, Instagram, Youtube, Linkedin } from 'lucide-react';
 
+const footerSections = [
+  {
+    title: 'Product',
+    links: ['Organicverse', 'Drops', 'NFT generator', 'Smart contract', 'Forms'],
+  },
+  {
+    title: 'Resources',
+    links: ['Help docs', 'Organic School', 'Discover', 'Blog', 'Made with Organic', 'Newsletter'],
+  },
+  {
+    title: 'Company',
+    links: ['About us', 'Careers'],
+  },
+];
+
+const socialLinks = [
+  { name: 'Twitter', icon: Twitter },
+  { name: 'Instagram', icon: Instagram },
+  { name: 'YouTube', icon: Youtube },
+  { name: 'LinkedIn', icon: Linkedin },
+];
+
+const linkClass = 'hover:opacity-80 hover:underline transition';
+
 export function Footer() {
   return (
-    <footer className="bg-[#242424] text-gray-300 px-6 pt-16 pb-8">
-      <div className="flex flex-col lg:flex-row lg:justify-between gap-12 max-w-7xl mx-auto">
-        {/* Logo Section */}
-        <div>
-          <div className="flex items-center gap-3 mb-4">
-            <Image src={Logo} alt="Logo" width={36} height={36} className="rounded-md" />
-            <span className="text-white text-2xl font-semibold">Organic NFTs</span>
+    <footer className="bg-[#242424] text-gray-300 px-6 py-16 pb-8">
+      {/* Top Section */}
+      <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12 max-w-7xl mx-auto">
+        {/* Logo */}
+        <div className="flex flex-col gap-4">
+          <div className="flex items-center gap-2">
+            <Image src={Logo} alt="Logo" width={32} height={32} className="rounded-md" />
+            <span className="text-white text-2xl lg:text-3xl font-semibold">Organic NFTs</span>
           </div>
-          <p className="text-gray-400 text-sm">
-            Empowering creators with generative tools and NFT solutions.
-          </p>
         </div>
 
         {/* Footer Links */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-base">
-          <div>
-            <h3 className="text-white font-semibold mb-3">Product</h3>
-            <ul className="space-y-2">
-              <li><Link href="#">Buenoverse</Link></li>
-              <li><Link href="#">Drops</Link></li>
-              <li><Link href="#">NFT generator</Link></li>
-              <li><Link href="#">Smart contract</Link></li>
-              <li><Link href="#">Forms</Link></li>
-            </ul>
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 text-sm md:text-base lg:text-lg">
+          {footerSections.map((section) => (
+            <div key={section.title}>
+              <h3 className="text-white font-semibold mb-4 text-base md:text-lg lg:text-xl">
+                {section.title}
+              </h3>
+              <ul className="space-y-2">
+                {section.links.map((link) => (
+                  <li key={link}>
+                    <Link href="#" className={linkClass}>
+                      {link}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
 
+          {/* Social Section */}
           <div>
-            <h3 className="text-white font-semibold mb-3">Resources</h3>
-            <ul className="space-y-2">
-              <li><Link href="#">Help docs</Link></li>
-              <li><Link href="#">Bueno School</Link></li>
-              <li><Link href="#">Discover</Link></li>
-              <li><Link href="#">Blog</Link></li>
-              <li><Link href="#">Made with Bueno</Link></li>
-              <li><Link href="#">Newsletter</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-white font-semibold mb-3">Company</h3>
-            <ul className="space-y-2">
-              <li><Link href="#">About us</Link></li>
-              <li><Link href="#">Careers</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-white font-semibold mb-3">Connect</h3>
+            <h3 className="text-white font-semibold mb-4 text-base md:text-lg lg:text-xl">Connect</h3>
             <ul className="space-y-3">
-              <li className="flex items-center gap-2">
-                <Twitter className="w-4 h-4" />
-                <Link href="#">Twitter</Link>
-              </li>
-              <li className="flex items-center gap-2">
-                <Instagram className="w-4 h-4" />
-                <Link href="#">Instagram</Link>
-              </li>
-              <li className="flex items-center gap-2">
-                <Youtube className="w-4 h-4" />
-                <Link href="#">YouTube</Link>
-              </li>
-              <li className="flex items-center gap-2">
-                <Linkedin className="w-4 h-4" />
-                <Link href="#">LinkedIn</Link>
-              </li>
+              {socialLinks.map(({ name, icon: Icon }) => (
+                <li key={name} className="flex items-center gap-2">
+                  <Icon className="w-4 h-4" />
+                  <Link href="#" className={linkClass}>{name}</Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
       </div>
 
       {/* Bottom Section */}
-      <div className="flex flex-col md:flex-row items-center justify-between border-t border-white/10 mt-12 pt-6 text-sm text-gray-400 gap-4 md:gap-0">
-        <span>© {new Date().getFullYear()} Organic NFTs</span>
-        <div className="flex gap-6">
-          <Link href="#" className="hover:text-white transition">Privacy Policy</Link>
-          <Link href="#" className="hover:text-white transition">Terms of Service</Link>
+      <div className="flex flex-col md:flex-row max-w-7xl mx-auto items-center justify-between border-t border-white/10 rounded-2xl mt-12 py-4 px-6 text-sm md:text-base lg:text-lg text-gray-400">
+        <span>© {new Date().getFullYear()} Organic NFT</span>
+        <div className="flex gap-6 mt-4 md:mt-0">
+          {['Privacy Policy', 'Terms of Service'].map((link) => (
+            <Link key={link} href="#" className={linkClass}>{link}</Link>
+          ))}
         </div>
       </div>
     </footer>
   );
-};
+}
