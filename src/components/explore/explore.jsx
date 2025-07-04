@@ -14,7 +14,7 @@ const buttons = [
 const Explore = () => {
   return (
     <section
-      className="relative bg-[#242424] text-white overflow-hidden min-h-[80vh] flex items-center px-6 md:px-12 lg:px-24 bg-contain"
+      className="relative bg-[#242424] text-white overflow-hidden min-h-[80vh] flex items-center px-4 sm:px-6 md:px-8 py-16 sm:py-24 lg:py-32 bg-contain"
       style={{
         backgroundImage: `url(${DottedBG.src})`,
         backgroundRepeat: 'repeat',
@@ -30,7 +30,7 @@ const Explore = () => {
           </h2>
           <div className="flex items-center justify-center md:justify-start gap-3 text-xl md:text-2xl lg:text-3xl font-medium">
             <Image
-              src="/favicon.ico" icon
+              src="/favicon.ico" 
               alt="Logo"
               width={32}
               height={32}

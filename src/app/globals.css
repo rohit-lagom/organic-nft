@@ -22,3 +22,11 @@
 body {
 font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
 }
+.swiper-pagination-bullet {
+  background: white;
+  opacity: 0.4;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}

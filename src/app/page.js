@@ -1,3 +1,4 @@
+import Code from "@/components/code/code";
 import Explore from "@/components/explore/explore";
 import {Footer} from "@/components/footer/footer";
 import {Hero} from "@/components/hero/hero";
@@ -9,6 +10,7 @@ export default function Home() {
     <main>
       <Navbar/>
       <Hero />
+      <Code/>
       <Explore/>
       <Footer/>
     </main>
