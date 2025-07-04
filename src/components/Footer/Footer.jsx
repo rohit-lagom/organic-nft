@@ -31,10 +31,8 @@ const linkClass = 'hover:opacity-80 hover:underline transition';
 
 export function Footer() {
   return (
-    <footer className="bg-[#242424] text-gray-300 px-6 py-16 pb-8">
-      {/* Top Section */}
+    <footer className="bg-[#242424] text-gray-300 px-4 sm:px-6 md:px-8 py-16 sm:py-24 lg:py-32">
       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12 max-w-7xl mx-auto">
-        {/* Logo */}
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-2">
             <Image src={Logo} alt="Logo" width={32} height={32} className="rounded-md" />
@@ -42,7 +40,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Footer Links */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 text-sm md:text-base lg:text-lg">
           {footerSections.map((section) => (
             <div key={section.title}>
@@ -61,7 +58,6 @@ export function Footer() {
             </div>
           ))}
 
-          {/* Social Section */}
           <div>
             <h3 className="text-white font-semibold mb-4 text-base md:text-lg lg:text-xl">Connect</h3>
             <ul className="space-y-3">
@@ -76,7 +72,6 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Bottom Section */}
       <div className="flex flex-col md:flex-row max-w-7xl mx-auto items-center justify-between border-t border-white/10 rounded-2xl mt-12 py-4 px-6 text-sm md:text-base lg:text-lg text-gray-400">
         <span>© {new Date().getFullYear()} Organic NFT</span>
         <div className="flex gap-6 mt-4 md:mt-0">
