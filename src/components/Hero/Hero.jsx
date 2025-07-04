@@ -9,7 +9,7 @@ const stats = [
   { value: '+ 21,000', label: 'happy creators' },
 ];
 
-const Hero = () => {
+export function Hero ()  {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-[#242424] text-white overflow-hidden">
 
@@ -52,4 +52,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+

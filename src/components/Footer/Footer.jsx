@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Logo from '@/assets/images/Logo.png'; 
 import { Twitter, Instagram, Youtube, Linkedin } from 'lucide-react';
 
-const Footer = () => {
+export function Footer () {
   return (
     <footer className="bg-[#242424] text-gray-300 px-8 pt-16 pb-8">
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-12">
@@ -82,4 +82,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+

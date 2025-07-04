@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Logo from '@/assets/images/Logo.png'; // Your logo
 
-const Navbar = () => {
+export function Navbar ()  {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -53,4 +53,3 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
