@@ -12,7 +12,7 @@ const stats = [
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-[#242424] text-white overflow-hidden">
-      {/* Background Image */}
+
       <Image
         src={HeroBg}
         alt="Hero Background"
@@ -21,7 +21,6 @@ const Hero = () => {
         priority
       />
 
-      {/* Hero Content */}
       <div className="text-center px-6 z-20 relative">
         <h1 className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight">
           From <span className="text-purple-500">imagination</span><br />
