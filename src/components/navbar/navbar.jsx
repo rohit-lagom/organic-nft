@@ -74,7 +74,7 @@ export function Navbar() {
         </nav>
 
         <button
-          className="md:hidden text-white"
+          className="md:hidden text-white cursor-pointer"
           onClick={() => setMenuOpen((prev) => !prev)}
           aria-label="Toggle Menu"
         >
@@ -88,7 +88,7 @@ export function Navbar() {
           menuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="bg-[#242424] border-t border-white/10 px-6 py-8 flex flex-col items-center text-white text-base mx-4 rounded-xl space-y-6">
+        <div className="bg-[#242424] border-t border-white/10 px-6 py-8 mt-2 flex flex-col items-center text-white text-base mx-4 rounded-xl space-y-6">
           {navLinks.map(({ label, href }) => (
             <Link
               key={label}
