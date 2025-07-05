@@ -31,7 +31,7 @@ const linkClass = 'hover:opacity-80 hover:underline transition';
 
 export function Footer() {
   return (
-    <footer className="bg-[#242424] text-gray-300 px-4 sm:px-6 md:px-8 py-16 sm:py-24 lg:py-32">
+    <footer className="bg-[#242424] text-gray-300 px-4 sm:px-6 md:px-8 py-16 sm:pt-24 lg:pt-32">
       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12 max-w-7xl mx-auto">
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-2">
