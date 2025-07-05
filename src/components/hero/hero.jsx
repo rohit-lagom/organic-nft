@@ -72,7 +72,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: idx * 0.1 }}
           style={{ y }}
-          className={`absolute hidden md:block z-10 ${idx === 0
+          className={`absolute hidden lg:block z-10 ${idx === 0
             ? 'top-8 left-4 w-20 h-20 lg:w-36 lg:h-36'
             : idx === 1
               ? 'top-44 left-2 w-24 h-24 lg:w-48 lg:h-48'
@@ -98,7 +98,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: idx * 0.1 }}
           style={{ y }}
-          className={`absolute hidden md:block z-10 ${idx === 0
+          className={`absolute hidden lg:block z-10 ${idx === 0
             ? 'top-8 right-4 w-20 h-20 lg:w-36 lg:h-36'
             : idx === 1
               ? 'top-44 right-2 w-24 h-24 lg:w-48 lg:h-48'
