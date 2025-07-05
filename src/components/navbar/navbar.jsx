@@ -7,7 +7,7 @@ import Logo from '@/assets/images/Logo.png';
 import { Menu, X } from 'lucide-react';
 
 const navLinks = [
-  { label: 'Discover', href: '#' },
+  { label: 'Dashboard', href: '/dashboard' },
   { label: 'Pricing', href: '#' },
   { label: 'Product', href: '#' },
   { label: 'Resources', href: '#' },
