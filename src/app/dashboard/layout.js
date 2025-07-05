@@ -1,33 +1,13 @@
-export const metadata = {
-  title: "Dashboard",
-  description: "Dashboard section with sidebar and header",
-};
+import Sidebar from '@/app/dashboard/_components/sidebar/sidebar';
 
 export default function DashboardLayout({ children }) {
   return (
     <div className="flex min-h-screen">
-      {/* Sidebar */}
-      <aside className="w-64 bg-gray-800 text-white p-4">
-        <h2 className="text-xl font-bold mb-6">Dashboard</h2>
-        <nav className="flex flex-col gap-4">
-          <a href="/dashboard" className="hover:text-gray-300">
-            Home
-          </a>
-          <a href="/dashboard/settings" className="hover:text-gray-300">
-            Settings
-          </a>
-          {/* Add more sidebar links here */}
-        </nav>
-      </aside>
-
-      {/* Main content */}
-      <div className="flex-1 bg-gray-100 p-6">
-        {/* Header */}
-        <header className="mb-6">
-          <h1 className="text-2xl font-semibold">Dashboard Header</h1>
+      <Sidebar/>
+      <div className="flex-1 bg-[#242424] text-white p-8">
+        <header className="mb-10">
+          <h1 className="text-4xl font-extrabold">Dashboard </h1>
         </header>
-
-        {/* Page Content */}
         <main>{children}</main>
       </div>
     </div>
