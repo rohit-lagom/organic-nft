@@ -1,6 +1,8 @@
 'use client';
 
 import Image from 'next/image';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import HeroBg from '@/assets/images/HeroBg.png';
 
 import left1 from '@/assets/images/left/left1.webp';
@@ -21,21 +23,34 @@ import right7 from '@/assets/images/right/right7.webp';
 
 const leftImages = [left1, left2, left3, left4, left5, left6, left7];
 const rightImages = [right1, right2, right3, right4, right5, right6, right7];
+const stats = [
+  { value: '+ $20 million', label: 'in creator earnings' },
+  { value: '+ 2 million', label: 'tokens generated' },
+  { value: '+ 21,000', label: 'happy creators' },
+];
 
 export function Hero() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
+  const y = useTransform(scrollYProgress, [0, 1], [0, -80]); // subtle parallax
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-[#242424] text-white overflow-hidden px-4 sm:px-6 md:px-8 py-16 sm:py-24 lg:py-32">
+    <section
+      ref={ref}
+      className="relative min-h-screen flex items-center justify-center bg-[#242424] text-white overflow-hidden px-4 sm:px-6 md:px-8 py-16 sm:py-24 lg:py-32"
+    >
       <Image src={HeroBg} alt="Hero Background" fill className="object-cover z-0" priority />
 
-      {/* Left Images */}
+      {/* Floating Images with animation from bottom to top + parallax */}
       {leftImages.map((img, idx) => (
-        <Image
-          key={idx}
-          src={img}
-          alt={`Left ${idx + 1}`}
-          className={`absolute hidden md:block z-10
-            ${
-              idx === 0
+        <motion.div
+          key={`left-${idx}`}
+          initial={{ opacity: 0, y: 80 }} // start from below
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: idx * 0.1 }}
+          style={{ y }}
+          className={`absolute hidden md:block z-10 ${
+  idx === 0
                 ? 'top-8 left-4 w-20 h-20 lg:w-36 lg:h-36'
                 : idx === 1
                 ? 'top-44 left-2 w-24 h-24 lg:w-48 lg:h-48'
@@ -48,19 +63,21 @@ export function Hero() {
                 : idx === 5
                 ? 'top-[34rem] left-8 w-24 h-24 lg:w-48 lg:h-48'
                 : 'top-[34rem] left-44 w-24 h-24 lg:w-48 lg:h-48'
-            }`}
-        />
+          }`}
+        >
+          <Image src={img} alt={`Left ${idx + 1}`} className="w-full h-full" />
+        </motion.div>
       ))}
 
-      {/* Right Images */}
       {rightImages.map((img, idx) => (
-        <Image
-          key={idx}
-          src={img}
-          alt={`Right ${idx + 1}`}
-          className={`absolute hidden md:block z-10
-            ${
-              idx === 0
+        <motion.div
+          key={`right-${idx}`}
+          initial={{ opacity: 0, y: 80 }} 
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: idx * 0.1 }}
+          style={{ y }}
+          className={`absolute hidden md:block z-10 ${
+       idx === 0
                 ? 'top-8 right-4 w-20 h-20 lg:w-36 lg:h-36'
                 : idx === 1
                 ? 'top-44 right-2 w-24 h-24 lg:w-48 lg:h-48'
@@ -73,11 +90,13 @@ export function Hero() {
                 : idx === 5
                 ? 'top-[34rem] right-8 w-24 h-24 lg:w-48 lg:h-48'
                 : 'top-[34rem] right-44 w-24 h-24 lg:w-48 lg:h-48'
-            }`}
-        />
+          }`}
+        >
+          <Image src={img} alt={`Right ${idx + 1}`} className="w-full h-full" />
+        </motion.div>
       ))}
 
-      {/* Hero Text */}
+      {/* Hero Text (no animation) */}
       <div className="text-center z-20 relative max-w-5xl mx-auto">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-extrabold leading-tight">
           From <span className="text-purple-500">imagination</span>
@@ -93,6 +112,22 @@ export function Hero() {
         <button className="mt-8 sm:mt-10 px-8 sm:px-10 py-3 sm:py-4 bg-purple-600 hover:bg-purple-700 text-white text-base sm:text-lg md:text-xl font-semibold rounded-full shadow-md transition">
           + Create now
         </button>
+
+          <div className="mt-16 sm:mt-20 flex flex-col md:flex-row justify-center gap-6 md:gap-8">
+          {stats.map((stat, idx) => (
+            <div
+              key={idx}
+              className="border border-white/10 backdrop-blur-lg rounded-xl px-5 sm:px-6 md:px-8 py-5 sm:py-6 md:py-8 shadow-md"
+            >
+              <p className="text-lg sm:text-xl md:text-2xl font-bold">
+                {stat.value}
+              </p>
+              <p className="text-gray-300 text-sm sm:text-base md:text-lg mt-2">
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
