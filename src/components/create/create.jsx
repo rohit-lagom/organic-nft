@@ -25,7 +25,7 @@ const cards = [
   },
 ];
 
-export default function CreateSection() {
+export default function Create() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [floatOffset, setFloatOffset] = useState({ x: 0, y: 0 });
 
