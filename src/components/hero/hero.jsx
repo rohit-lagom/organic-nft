@@ -23,7 +23,7 @@ import right7 from '@/assets/images/right/right7.webp';
 
 const leftImages = [left1, left2, left3, left4, left5, left6, left7];
 const rightImages = [right1, right2, right3, right4, right5, right6, right7];
-const mobileImages = [left1, left2, left3, left4, left5];
+const mobileImages = [left2, left3, left4, left5,right2, right3, right4,right5, right6];
 const stats = [
   { value: '+ $20 million', label: 'in creator earnings' },
   { value: '+ 2 million', label: 'tokens generated' },
@@ -42,8 +42,8 @@ export function Hero() {
     >
       <Image src={HeroBg} alt="Hero Background" fill className="object-cover z-0" priority />
 
-      <div className="absolute top-0 left-0 right-0 flex  md:hidden z-10">
-        {mobileImages.slice(0, 5).map((img, idx) => (
+      <div className="absolute top-0 left-0 right-0 flex  opacity-50 md:hidden z-10">
+        {mobileImages.slice(1, 7).map((img, idx) => (
           <div
             key={idx}
             className="relative"
@@ -56,7 +56,7 @@ export function Hero() {
               <Image
                 src={img}
                 alt={`Image ${idx + 1}`}
-                className="w-48 h-48 object-cover -mt-14 rounded-3xl shadow-lg"
+                className="w-48 h-48 object-cover -mt-14 rounded-xl"
               />
             </div>
           </div>
