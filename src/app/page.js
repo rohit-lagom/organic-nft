@@ -7,6 +7,7 @@ import { Footer } from "@/components/footer/footer";
 
 import Image from "next/image";
 import TopCreators from "@/components/top-creators/top-creators";
+import Create from "@/components/create/create";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Code/>
       <Explore/>
       <TopCreators/>
+      <Create/>
       <Footer/>
     </main>
   );
