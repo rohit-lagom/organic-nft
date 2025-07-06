@@ -13,7 +13,7 @@ const navLinks = [
   { label: 'Resources', href: '#' },
 ];
 
-export function Navbar() {
+export function Sidebar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
