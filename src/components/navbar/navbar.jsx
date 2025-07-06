@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Logo from '@/assets/images/Logo.png';
 import { Menu, X } from 'lucide-react';
 
-const navLinks = [
+const sideBarLinks = [
   { label: 'Dashboard', href: '/dashboard' },
   { label: 'Pricing', href: '#' },
   { label: 'Product', href: '#' },
@@ -65,7 +65,7 @@ export function Sidebar() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-6 text-white text-sm font-medium">
-          {navLinks.map(({ label, href }) => (
+          {sideBarLinks.map(({ label, href }) => (
             <Link key={label} href={href} className="hover:text-purple-400 transition">
               {label}
             </Link>
@@ -89,7 +89,7 @@ export function Sidebar() {
         }`}
       >
         <div className="bg-[#242424] border-t border-white/10 px-6 py-8 mt-2 flex flex-col items-center text-white text-base mx-4 rounded-xl space-y-6">
-          {navLinks.map(({ label, href }) => (
+          {sideBarLinks.map(({ label, href }) => (
             <Link
               key={label}
               href={href}
